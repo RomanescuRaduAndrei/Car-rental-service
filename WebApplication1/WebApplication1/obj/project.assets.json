@@ -10626,11 +10626,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\MAIN\\WebApplication1\\WebApplication1\\CarRent.csproj",
+      "projectUniqueName": "C:\\Users\\RADU\\Desktop\\New folder (10)\\Car-rental-service\\WebApplication1\\WebApplication1\\CarRent.csproj",
       "projectName": "CarRent",
-      "projectPath": "C:\\MAIN\\WebApplication1\\WebApplication1\\CarRent.csproj",
+      "projectPath": "C:\\Users\\RADU\\Desktop\\New folder (10)\\Car-rental-service\\WebApplication1\\WebApplication1\\CarRent.csproj",
       "packagesPath": "C:\\Users\\RADU\\.nuget\\packages\\",
-      "outputPath": "C:\\MAIN\\WebApplication1\\WebApplication1\\obj\\",
+      "outputPath": "C:\\Users\\RADU\\Desktop\\New folder (10)\\Car-rental-service\\WebApplication1\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

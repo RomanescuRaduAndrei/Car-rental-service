@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CarRental.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using CarRental.Models;
 using WebApplication1.Data;
 
 namespace WebApplication1.Controllers
@@ -22,9 +18,9 @@ namespace WebApplication1.Controllers
         // GET: Rents
         public async Task<IActionResult> Index()
         {
-              return _context.Rents != null ? 
-                          View(await _context.Rents.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Rents'  is null.");
+            return _context.Rents != null ?
+                        View(await _context.Rents.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Rents'  is null.");
         }
 
         // GET: Rents/Details/5
@@ -46,6 +42,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Rents/Create
+        [Authorize(Roles = "Admin,Client")]
         public IActionResult Create()
         {
             return View();
@@ -56,6 +53,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Client")]
         public async Task<IActionResult> Create([Bind("Id,RentBegin,RentEnd,PayMethod")] Rents rents)
         {
             if (ModelState.IsValid)
@@ -150,14 +148,14 @@ namespace WebApplication1.Controllers
             {
                 _context.Rents.Remove(rents);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool RentsExists(int id)
         {
-          return (_context.Rents?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Rents?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
